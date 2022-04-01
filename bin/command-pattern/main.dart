@@ -1,9 +1,12 @@
-import 'commands/print_command.dart';
-import 'controllers/destination_controller.dart';
-import 'controllers/sender_controller.dart';
+import 'commands/copy_command.dart';
+import 'commands/cut_command.dart';
+import 'commands/paste_command.dart';
+import 'controllers/editor.controller.dart';
 
 main() {
-  SenderController sender =
-      SenderController(PrintCommand(DestinationController()));
-  sender.executeComand();
+  Editor newEditor =
+      Editor(editorCommands: [CopyCommand(), PasteCommand(), CutCommand()]);
+  newEditor.copy();
+  newEditor.cut();
+  newEditor.paste();
 }
